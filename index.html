@@ -1,0 +1,998 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#542078">
+<meta name="description" content="Un jardín de flores moradas hecho con amor.">
+<title>💜 Flores moradas para mi amor 💜</title>
+
+<style>
+:root {
+  --morado: #57217c;
+  --violeta: #8e44ad;
+  --lila: #d9b8f4;
+  --rosa: #f7e8ff;
+  --blanco: #fffaff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: "Georgia", "Palatino", serif;
+  text-align: center;
+  color: var(--morado);
+  background:
+    radial-gradient(ellipse at 50% 15%, #fff7ff 0%, transparent 48%),
+    linear-gradient(180deg, #f9efff, #e6d0fa, #c7a0ec);
+}
+
+button {
+  font: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible {
+  outline: 3px solid #8e44ad;
+  outline-offset: 5px;
+}
+
+/* ✨ CIELO DE ESTRELLAS ✨ */
+
+.estrellas {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.estrella {
+  position: absolute;
+  color: white;
+  text-shadow: 0 0 12px #b77aff;
+  animation: parpadear var(--duracion, 3s)
+    ease-in-out infinite alternate;
+}
+
+@keyframes parpadear {
+  from {
+    opacity: .2;
+    transform: scale(.7) rotate(0deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.3) rotate(30deg);
+  }
+}
+
+/* 🌸 PÉTALOS FLOTANTES 🌸 */
+
+.petalo {
+  position: fixed;
+  top: -40px;
+  z-index: 3;
+  pointer-events: none;
+  opacity: .8;
+  animation: caer linear forwards;
+}
+
+@keyframes caer {
+  0% {
+    transform: translate3d(0, -5vh, 0) rotate(0deg);
+    opacity: 0;
+  }
+  10% { opacity: .9; }
+  90% { opacity: .7; }
+  100% {
+    transform: translate3d(var(--deriva), 110vh, 0)
+      rotate(500deg);
+    opacity: 0;
+  }
+}
+
+/* 💜 PORTADA MÁGICA 💜 */
+
+.portada {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+  padding: 28px 20px;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse at 50% 45%,
+      #ffffff 0%,
+      #fbf0ff 40%,
+      #e7c9fa 75%,
+      #d3b0ef 100%);
+  transition:
+    opacity .9s ease,
+    transform .9s ease,
+    visibility .9s;
+}
+
+.portada::before {
+  content: "";
+  position: absolute;
+  inset: 13px;
+  border: 2px solid #b983db;
+  border-radius: 28px;
+  box-shadow:
+    inset 0 0 25px #cda3ed55,
+    0 0 22px #b783d755;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.portada::after {
+  content: "✧ ･ﾟ: *✧･ﾟ:*  ♡  *:･ﾟ✧*:･ﾟ✧";
+  position: absolute;
+  top: 27px;
+  left: 0;
+  width: 100%;
+  color: #a36ac7;
+  font-size: clamp(13px, 4vw, 19px);
+  letter-spacing: 2px;
+  opacity: .8;
+  pointer-events: none;
+}
+
+.portada.oculto {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(1.08);
+}
+
+.decoracion {
+  position: absolute;
+  z-index: -1;
+  color: #9d60c2;
+  pointer-events: none;
+  user-select: none;
+}
+
+.d1 {
+  top: 9%;
+  left: 8%;
+  font-size: 36px;
+  animation: flotar 4s ease-in-out infinite;
+}
+
+.d2 {
+  top: 17%;
+  right: 8%;
+  font-size: 32px;
+  animation: flotar 3.5s ease-in-out infinite reverse;
+}
+
+.d3 {
+  bottom: 13%;
+  left: 7%;
+  font-size: 38px;
+  animation: flotar 4.5s ease-in-out infinite;
+}
+
+.d4 {
+  bottom: 10%;
+  right: 8%;
+  font-size: 35px;
+  animation: flotar 3s ease-in-out infinite reverse;
+}
+
+.d5 {
+  top: 29%;
+  left: 5%;
+  font-size: 18px;
+}
+
+.d6 {
+  top: 33%;
+  right: 6%;
+  font-size: 21px;
+}
+
+.d7 {
+  bottom: 28%;
+  left: 12%;
+  font-size: 18px;
+}
+
+.d8 {
+  bottom: 30%;
+  right: 12%;
+  font-size: 18px;
+}
+
+.sello {
+  display: inline-block;
+  padding: 9px 17px;
+  margin: 20px 0 15px;
+  border: 1px solid #d4afea;
+  border-radius: 30px;
+  color: #8751a7;
+  background: #ffffffa8;
+  font-size: 12px;
+  letter-spacing: 2px;
+  box-shadow: 0 4px 15px #a76bd51b;
+  animation: entrada 1s ease both;
+}
+
+.portada h1 {
+  max-width: 420px;
+  padding: 0 8px;
+  font-size: clamp(29px, 8vw, 42px);
+  line-height: 1.4;
+  color: #51206f;
+  font-weight: bold;
+  letter-spacing: .3px;
+  animation: entrada 1.2s ease both;
+}
+
+.texto-bonito {
+  background: linear-gradient(
+    100deg,
+    #63238b,
+    #b66cdb,
+    #7c31a6,
+    #d18ce9
+  );
+  background-size: 250% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: brilloTexto 6s linear infinite;
+}
+
+@keyframes brilloTexto {
+  to { background-position: 250% center; }
+}
+
+.linea-decorativa {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: min(270px, 80%);
+  margin: 16px 0 0;
+  color: #b27bd3;
+  font-size: 18px;
+}
+
+.linea-decorativa::before,
+.linea-decorativa::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #b27bd3);
+}
+
+.linea-decorativa::after {
+  background: linear-gradient(90deg, #b27bd3, transparent);
+}
+
+.frase-portada {
+  max-width: 315px;
+  margin: 13px auto 0;
+  color: #89669d;
+  font-size: 16px;
+  line-height: 1.9;
+  animation: entrada 1.5s ease both;
+}
+
+.marco-flor {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 180px;
+  height: 180px;
+  margin: 10px 0 15px;
+}
+
+.orbita {
+  position: absolute;
+  inset: 10px;
+  border: 1px solid #c69be3;
+  border-radius: 50%;
+  box-shadow:
+    0 0 18px #c29ae755,
+    inset 0 0 15px #d8b6f044;
+  animation: girar 16s linear infinite;
+}
+
+.orbita::before,
+.orbita::after {
+  content: "✦";
+  position: absolute;
+  color: #a15dc9;
+  font-size: 19px;
+}
+
+.orbita::before {
+  top: 8px;
+  left: 21px;
+}
+
+.orbita::after {
+  bottom: 9px;
+  right: 18px;
+}
+
+@keyframes girar {
+  to { transform: rotate(360deg); }
+}
+
+.flor-central {
+  display: grid;
+  place-items: center;
+  width: 125px;
+  height: 125px;
+  border: 2px solid #e2c5f4;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, #fff 0%, #f7e7ff 70%);
+  box-shadow:
+    0 0 20px #bd8cf7a6,
+    0 0 45px #d8b0ff70,
+    inset 0 0 20px white;
+  font-size: 83px;
+  cursor: pointer;
+  animation: latido 2.4s ease-in-out infinite;
+  transition: box-shadow .3s ease;
+}
+
+.flor-central:active {
+  box-shadow: 0 0 55px #b783e9;
+}
+
+.instruccion {
+  padding: 14px 23px;
+  border: 1px solid #c99be5;
+  border-radius: 40px;
+  color: #692c8a;
+  background: #ffffffd9;
+  box-shadow: 0 5px 25px #a96bd52b;
+  animation: flotar 3s ease-in-out infinite;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.pie-portada {
+  margin-top: 20px;
+  color: #9c78b0;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+@keyframes latido {
+  0%, 100% {
+    transform: scale(1) rotate(-4deg);
+  }
+  50% {
+    transform: scale(1.08) rotate(4deg);
+  }
+}
+
+@keyframes flotar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes entrada {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 🪻 JARDÍN PRINCIPAL 🪻 */
+
+.contenido {
+  display: none;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 520px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 38px 18px 30px;
+}
+
+.contenido.visible {
+  display: block;
+  animation: entrada 1s ease both;
+}
+
+.encabezado {
+  margin-bottom: 32px;
+}
+
+.encabezado h2 {
+  font-size: clamp(26px, 6.5vw, 32px);
+  line-height: 1.4;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.encabezado p {
+  font-size: 17px;
+  color: #805b99;
+  line-height: 1.8;
+}
+
+.mini-adornos {
+  margin-bottom: 12px;
+  color: #a36ac7;
+  font-size: 21px;
+  letter-spacing: 8px;
+}
+
+.circulo-flores {
+  position: relative;
+  width: min(100%, 340px);
+  aspect-ratio: 1;
+  margin: 12px auto 28px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, #fff8ffb5 0%, #e6c9f738 47%, transparent 70%);
+}
+
+.circulo-flores::before {
+  content: "♡";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 72px;
+  color: #b87bd9;
+  text-shadow: 0 0 22px #d6a7ff;
+  animation: latido 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.flor-item {
+  position: absolute;
+  width: clamp(82px, 24vw, 100px);
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #d6b2ee;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #ffffffed, #f5e3ffed);
+  box-shadow:
+    0 5px 18px #8852a82a,
+    inset 0 0 12px white;
+  cursor: pointer;
+  color: #713593;
+  transition: box-shadow .25s ease;
+  animation: flotar 3s ease-in-out infinite;
+}
+
+.flor-item:nth-child(even) {
+  animation-delay: -1.5s;
+}
+
+.flor-item:active {
+  box-shadow: 0 0 25px #b37be7;
+}
+
+.flor-item.seleccionada {
+  border-color: #a55cd1;
+  box-shadow: 0 0 24px #bd8ae9, inset 0 0 15px white;
+}
+
+.flor-emoji {
+  font-size: clamp(36px, 10vw, 44px);
+}
+
+.flor-item:nth-child(1) {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.flor-item:nth-child(1):active {
+  transform: translateX(-50%) scale(.92);
+}
+
+.flor-item:nth-child(2) {
+  top: 17%;
+  right: 0;
+}
+
+.flor-item:nth-child(3) {
+  bottom: 17%;
+  right: 0;
+}
+
+.flor-item:nth-child(4) {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.flor-item:nth-child(4):active {
+  transform: translateX(-50%) scale(.92);
+}
+
+.flor-item:nth-child(5) {
+  bottom: 17%;
+  left: 0;
+}
+
+.flor-item:nth-child(6) {
+  top: 17%;
+  left: 0;
+}
+
+/* 💌 MENSAJITOS 💌 */
+
+.mensaje-caja {
+  display: none;
+  position: relative;
+  padding: 30px 24px 25px;
+  margin: 18px auto;
+  max-width: 390px;
+  border: 2px solid #d5a7ec;
+  border-radius: 24px;
+  background: linear-gradient(145deg, #fffaffef, #f4e3ffef);
+  box-shadow:
+    0 12px 35px #70409526,
+    inset 0 0 22px #fff;
+}
+
+.mensaje-caja.visible {
+  display: block;
+  animation: aparecerMensaje .55s cubic-bezier(.2,.8,.2,1) both;
+}
+
+@keyframes aparecerMensaje {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.mensaje-titulo {
+  display: inline-block;
+  padding: 8px 18px;
+  margin-bottom: 18px;
+  border-radius: 30px;
+  background: #ead1fa;
+  color: #753496;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.mensaje-texto {
+  font-size: clamp(19px, 5vw, 22px);
+  line-height: 1.8;
+  color: #542078;
+  font-weight: 500;
+}
+
+.cerrar-btn,
+.volver-btn {
+  padding: 12px 26px;
+  margin-top: 20px;
+  border: 0;
+  border-radius: 30px;
+  color: white;
+  background: linear-gradient(100deg, #9553c4, #bd80e5);
+  box-shadow: 0 5px 15px #9553c433;
+  cursor: pointer;
+  transition: transform .2s ease;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.cerrar-btn:active,
+.volver-btn:active {
+  transform: scale(.95);
+}
+
+.volver-btn {
+  display: block;
+  margin: 20px auto 0;
+  background: #ffffffb3;
+  border: 1px solid #c99be5;
+  color: #70338f;
+}
+
+.firma {
+  margin-top: 32px;
+  padding-bottom: 10px;
+  font-size: 16px;
+  font-style: italic;
+  color: #795293;
+  line-height: 1.9;
+}
+
+@media (max-width: 360px) {
+  .contenido { padding-inline: 12px; }
+  .circulo-flores { width: 100%; }
+  .flor-item { width: 78px; }
+  .marco-flor {
+    width: 155px;
+    height: 155px;
+  }
+  .flor-central {
+    width: 110px;
+    height: 110px;
+    font-size: 72px;
+  }
+  .d1, .d3 { left: 5%; }
+  .d2, .d4 { right: 5%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="estrellas" id="estrellas" aria-hidden="true"></div>
+
+<!-- PORTADA -->
+
+<section class="portada" id="portada">
+
+  <span class="decoracion d1">✿</span>
+  <span class="decoracion d2">♡</span>
+  <span class="decoracion d3">🪻</span>
+  <span class="decoracion d4">🌷</span>
+  <span class="decoracion d5">✧</span>
+  <span class="decoracion d6">💜</span>
+  <span class="decoracion d7">✦</span>
+  <span class="decoracion d8">♡</span>
+
+  <div class="sello">♡ UN DETALLITO HECHO CON AMOR ♡</div>
+
+  <h1 class="texto-bonito">
+    Flores moradas para mi amorcita pleshiosha 💜
+  </h1>
+
+  <div class="linea-decorativa">✿ ♡ ✿</div>
+
+  <p class="frase-portada">
+    Para la niña que hace florecer cosas bonitas
+    en mi corazón. 🌷
+    <br>
+    Hoy preparé un rinconcito mágico
+    que lleva un pedacito de mi amor por ti. 🥹💞
+  </p>
+
+  <div class="marco-flor">
+    <div class="orbita"></div>
+    <button
+      class="flor-central"
+      id="botonAbrir"
+      aria-label="Abrir el jardín de flores">
+      🪻
+    </button>
+  </div>
+
+  <p class="instruccion">
+    ✨ Toca la flor para descubrir ✨
+  </p>
+
+  <p class="pie-portada">
+    HECHO CON AMOR, PENSANDO EN TI 💜
+  </p>
+
+</section>
+
+<!-- JARDÍN PRINCIPAL -->
+
+<main class="contenido" id="contenido">
+
+  <header class="encabezado">
+    <div class="mini-adornos">✧ ♡ 🪻 ♡ ✧</div>
+
+    <h2 class="texto-bonito">
+      Un pequeño jardín para ti 🪻
+    </h2>
+
+    <p>
+      Mi amor, cada florecita guarda palabras
+      que nacen de lo más bonito de mi corazón.
+      Elige una y descubre tu mensajito. 💜
+    </p>
+  </header>
+
+  <div
+    class="circulo-flores"
+    aria-label="Jardín de seis flores">
+
+    <button class="flor-item" data-indice="0"
+      aria-label="Descubrir mensaje de la flor uno">
+      <span class="flor-emoji">🌸</span>
+    </button>
+
+    <button class="flor-item" data-indice="1"
+      aria-label="Descubrir mensaje de la flor dos">
+      <span class="flor-emoji">🌷</span>
+    </button>
+
+    <button class="flor-item" data-indice="2"
+      aria-label="Descubrir mensaje de la flor tres">
+      <span class="flor-emoji">🪻</span>
+    </button>
+
+    <button class="flor-item" data-indice="3"
+      aria-label="Descubrir mensaje de la flor cuatro">
+      <span class="flor-emoji">💐</span>
+    </button>
+
+    <button class="flor-item" data-indice="4"
+      aria-label="Descubrir mensaje de la flor cinco">
+      <span class="flor-emoji">✨</span>
+    </button>
+
+    <button class="flor-item" data-indice="5"
+      aria-label="Descubrir mensaje de la flor seis">
+      <span class="flor-emoji">🌻</span>
+    </button>
+
+  </div>
+
+  <section
+    class="mensaje-caja"
+    id="cajaMensaje"
+    aria-live="polite"
+    aria-atomic="true">
+
+    <span class="mensaje-titulo">
+      💌 Un mensajito para ti 💌
+    </span>
+
+    <p class="mensaje-texto" id="textoMensaje"></p>
+
+    <button class="cerrar-btn" id="botonCerrar">
+      Guardar en mi corazón 💜
+    </button>
+
+  </section>
+
+  <button class="volver-btn" id="botonVolver">
+    ↩ Volver a la portada
+  </button>
+
+  <footer class="firma">
+    Hecho con todo mi corazón para ti 💜✨
+    <br>
+    <span>
+      Que la vida siempre te regale motivos
+      para sonreír, mi amorcita. 🪻
+    </span>
+    <br>
+    <span>♡ ∞ ♡</span>
+  </footer>
+
+</main>
+
+<script>
+/* 💌 MENSAJES DEL CORAZÓN 💌 */
+
+const mensajes = [
+  "Mi amor, si pudiera regalarte algo en este mundo, te regalaría la oportunidad de verte con mis ojos, para que entendieras lo increíblemente especial que eres para mí. 💜🥹",
+
+  "Te amo por tu forma de ser, por esos pequeños detalles que te hacen única y por cada instante en el que, sin darte cuenta, haces más bonito mi mundo. 🌷💞",
+
+  "Si mi corazón fuera un jardín, tú serías esa flor que siempre elegiría cuidar, no porque las demás no sean bonitas, sino porque tú tienes un lugar especial en él. 🪻❤️",
+
+  "No necesito que todos tus días sean perfectos, mi niña. Quiero que sepas que mereces cariño, paciencia, tranquilidad y muchas razones para sonreír. 🥹💗",
+
+  "Te amo en los días bonitos y también en esos días en los que necesitas un poquito más de paciencia. No tienes que fingir estar feliz para merecer amor. 💜🫂",
+
+  "Entre tantas personas y tantos lugares, qué bonito que nuestros caminos se hayan encontrado. Si pudiera pedir un deseo para ti, sería que nunca olvides lo mucho que vales. 🌙💐"
+];
+
+/* 🌟 ELEMENTOS DE LA PÁGINA 🌟 */
+
+const portada = document.getElementById("portada");
+const contenido = document.getElementById("contenido");
+const cajaMensaje = document.getElementById("cajaMensaje");
+const textoMensaje = document.getElementById("textoMensaje");
+const flores = document.querySelectorAll(".flor-item");
+const botonAbrir = document.getElementById("botonAbrir");
+const botonCerrar = document.getElementById("botonCerrar");
+const botonVolver = document.getElementById("botonVolver");
+const estrellas = document.getElementById("estrellas");
+
+/* ✨ ESTRELLITAS ANIMADAS ✨ */
+
+for (let i = 0; i < 45; i++) {
+  const estrella = document.createElement("span");
+
+  estrella.className = "estrella";
+  estrella.textContent = Math.random() > .5 ? "✦" : "·";
+  estrella.style.left = Math.random() * 100 + "%";
+  estrella.style.top = Math.random() * 100 + "%";
+  estrella.style.fontSize = (8 + Math.random() * 13) + "px";
+  estrella.style.setProperty(
+    "--duracion",
+    (2 + Math.random() * 3) + "s"
+  );
+  estrella.style.animationDelay = Math.random() * 3 + "s";
+
+  estrellas.appendChild(estrella);
+}
+
+/* 🌸 LLUVIA DE PÉTALOS 🌸 */
+
+const simbolosPetalos = ["🌸", "💜", "🪻", "✿"];
+
+let intervaloPetalos;
+let temporizadoresIniciales = [];
+
+function crearPetalo() {
+  if (document.hidden) return;
+
+  const petalo = document.createElement("span");
+
+  petalo.className = "petalo";
+  petalo.setAttribute("aria-hidden", "true");
+  petalo.textContent =
+    simbolosPetalos[
+      Math.floor(Math.random() * simbolosPetalos.length)
+    ];
+
+  petalo.style.left = Math.random() * 100 + "vw";
+  petalo.style.fontSize = (12 + Math.random() * 15) + "px";
+  petalo.style.setProperty(
+    "--deriva",
+    (Math.random() * 160 - 80) + "px"
+  );
+
+  const duracion = 7 + Math.random() * 7;
+  petalo.style.animationDuration = duracion + "s";
+
+  document.body.appendChild(petalo);
+
+  setTimeout(() => petalo.remove(), duracion * 1000);
+}
+
+function iniciarPetalos() {
+  if (intervaloPetalos) return;
+
+  for (let i = 0; i < 8; i++) {
+    temporizadoresIniciales.push(
+      setTimeout(crearPetalo, i * 350)
+    );
+  }
+
+  intervaloPetalos = setInterval(crearPetalo, 1100);
+}
+
+function detenerPetalos() {
+  clearInterval(intervaloPetalos);
+  intervaloPetalos = null;
+
+  temporizadoresIniciales.forEach(clearTimeout);
+  temporizadoresIniciales = [];
+}
+
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
+    detenerPetalos();
+  } else {
+    iniciarPetalos();
+  }
+});
+
+iniciarPetalos();
+
+/* 💜 ABRIR EL JARDÍN 💜 */
+
+function abrirTodo() {
+  portada.classList.add("oculto");
+  contenido.classList.add("visible");
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
+botonAbrir.addEventListener("click", abrirTodo);
+
+/* 💌 MOSTRAR LAS DEDICATORIAS 💌 */
+
+function mostrarMensaje(indice) {
+  textoMensaje.textContent = mensajes[indice];
+
+  cajaMensaje.classList.remove("visible");
+
+  flores.forEach(flor => {
+    flor.classList.remove("seleccionada");
+    flor.setAttribute("aria-pressed", "false");
+  });
+
+  flores[indice].classList.add("seleccionada");
+  flores[indice].setAttribute("aria-pressed", "true");
+
+  void cajaMensaje.offsetWidth;
+
+  cajaMensaje.classList.add("visible");
+
+  setTimeout(() => {
+    cajaMensaje.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest"
+    });
+  }, 100);
+}
+
+flores.forEach(flor => {
+  flor.setAttribute("aria-pressed", "false");
+
+  flor.addEventListener("click", () => {
+    mostrarMensaje(Number(flor.dataset.indice));
+  });
+});
+
+/* 🌷 CERRAR EL MENSAJE 🌷 */
+
+function cerrarMensaje() {
+  cajaMensaje.classList.remove("visible");
+
+  flores.forEach(flor => {
+    flor.classList.remove("seleccionada");
+    flor.setAttribute("aria-pressed", "false");
+  });
+}
+
+botonCerrar.addEventListener("click", cerrarMensaje);
+
+/* ↩ REGRESAR A LA PORTADA ↩ */
+
+botonVolver.addEventListener("click", () => {
+  cerrarMensaje();
+
+  contenido.classList.remove("visible");
+  portada.classList.remove("oculto");
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
+</script>
+
+</body>
+</html>
